@@ -1,0 +1,15 @@
+---
+  - hosts: all
+    become: true
+    tasks:
+      - name: Installing nginx and php
+        apt: 
+          name: 
+            - nginx
+            - php
+          state: present
+      - name: Enable nginx starts
+        service:
+          name: nginx
+          state: started
+          enabled: yes
